@@ -106,7 +106,7 @@ class hicks_database {
 	}
 	
 	/**
-	 * 
+	 * Datenabnkabfrage | INSERT INTO
 	 * @param string $table
 	 * @param array $fields
 	 * @param boolean $update
@@ -129,14 +129,12 @@ class hicks_database {
 			
 			if($int == 0){ // Verhindert, dass vor der ersten Variable ein Komma steht
 				$variables[":".$int."name"] = $value['name'];
-				$variables[":".$int."value"] = $value['value'];
-				
+				$variables[":".$int."value"] = $value['value'];				
 				$varquery .= ":".$int."name";
 				$valuequery .= ":".$int."value";
 			}else{
 				$variables[':'.$int."name"] = $value['name'];
-				$variables[':'.$int."value"] = $value['value'];
-				
+				$variables[':'.$int."value"] = $value['value'];				
 				$varquery .= ", :".$int."name";
 				$valuequery .= ", :".$int."value";
 			}
