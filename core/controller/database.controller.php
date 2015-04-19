@@ -146,18 +146,13 @@ class hicks_database {
 		
 		try {
 			
-			$values = "";
-			foreach ($pageArray as $key => $value) {
-				$sql .= $key . ", ";	$table = 
-				$values .= ":" . $key . ", ";
-			}
-			$sql = substr($sql, 0, -2) . ") VALUES (";
-			$sql .= substr($values, 0, -2) . ")";
+			//$sql = substr($sql, 0, -2) . ") VALUES (";    ??
+			//$sql .= substr($values, 0, -2) . ")";			??
 			$statement = $this->link->prepare($sql);
-			$count = $statement->execute($pageArray);
+			$count = $statement->execute($variables);
 			return $count;
 		} catch (PDOException $ex) {
-			echo $ex->getMessage();
+			// ERROR
 		}
 	}
 
@@ -173,7 +168,7 @@ class hicks_database {
 			$count = $statement->execute($setarray);
 			return $count;
 		} catch (PDOException $ex) {
-			echo $ex->getMessage();
+			// ERROR
 		}
 	}
 
