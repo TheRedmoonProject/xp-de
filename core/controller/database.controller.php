@@ -17,7 +17,7 @@ class hicks_database {
 	private $prefix;
 	
 	private $uplink;
-	
+	private $uplinkcheck;
 	
 	/**
 	 * Verhindert, dass die Klasse in mehreren Instanzen existiert
@@ -44,7 +44,9 @@ class hicks_database {
 		
 		try{  // Fängt Fehler beim Verbindungsaufbau ab
 		$this->uplink = new PDO('mysql:host='.$this->host.';dbname='.$this->name.';charset=utf8;', $this->user, $this->pass);
+		$this->uplinkcheck = true;
 		}catch (PDOExeption $ex){
+			$this->uplinkcheck = true;
 			// ERROR 
 		}		
 		
