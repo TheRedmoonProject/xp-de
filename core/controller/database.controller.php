@@ -54,7 +54,7 @@ class hicks_database {
 	 * @param string $table
 	 * @param string $column
 	 * @param string $where
-	 * @param unknown $arrayTyp
+	 * @param const $arrayTyp
 	 * @return array
 	 */
 	public function select($table, $column = "*", $where = null, $arrayTyp = PDO::FETCH_ASSOC) {
@@ -69,7 +69,7 @@ class hicks_database {
 			);
 			*/
    			$int = 0;
-			foreach ($where as $arg){								// Erzeugt den WHERE-Teil des Querys
+			foreach ($where as $arg){	// Erzeugt den WHERE-Teil des Querys
 				$wherequery .= ":".$int."name = :".$int."value ";
 				$variables[":".$int."name"] = $arg['name'];
 				$variables[":".$int."value"] = $arg['value'];
@@ -87,9 +87,9 @@ class hicks_database {
 			$result = $stm->fetchAll($arrayTyp);
 
 			//* Die erste Zeile ([0]) enthält Status-infors */
-		} catch (Exception $e) {
+		} catch (PDOException $ex) {
 			echo 'Exception -> ';
-			var_dump($e->getMessage());
+			var_dump($ex->getMessage());
 		}
 		$error = $this->uplink->errorInfo();  //  Die errorInfo() wird aus dem PDO Object und nicht aus dem PDOStatement bezogen ;)
 		$ret[] = array('count' => $stm->rowCount(), 'error' => $error[2], 'sql' => $sql);
@@ -104,13 +104,51 @@ class hicks_database {
 
 		return $ret;
 	}
-
-	public function insert($table, $pageArray) {
+	
+	/**
+	 * 
+	 * @param string $table
+	 * @param array $variables
+	 * @return unknown
+	 */
+	
+	public function insert($table, $fields) {
+		/*
+		$fields = array(
+			array("name" => "","value" => ""),
+			array("name" => "","value" => "")				
+		);
+		*/
+		// INSERT INTO `table` (`id`, `id2`) VALUES ('1234', '123');
+		$variables = array();
+		$variables[':table'] = $this->prefix.$table;
+		$varquery = "";
+		$valuequery = ") VALUES (";
+		$int = 0;
+		foreach ($fields as $value){
+			
+			if($int == 0){ // Verhindert, dass vor der ersten Variable ein Komma steht
+				$variables[":".$int."name"] = $value['name'];
+				$variables[":".$int."value"] = $value['value'];
+				
+				$varquery .= ":".$int."name";
+				$valuequery .= ":".$int."value";
+			}else{
+				$variables[':'.$int."name"] = $value['name'];
+				$variables[':'.$int."value"] = $value['value'];
+				
+				$varquery .= ", :".$int."name";
+				$valuequery .= ", :".$int."value";
+			}
+			$int++;
+		}
+		$sql = "INSERT INTO :table (".$varquery.$valuequery.");";
+		
 		try {
-			$sql = "INSERT INTO $this->tablepraefix$table (";
+			
 			$values = "";
 			foreach ($pageArray as $key => $value) {
-				$sql .= $key . ", ";
+				$sql .= $key . ", ";	$table = 
 				$values .= ":" . $key . ", ";
 			}
 			$sql = substr($sql, 0, -2) . ") VALUES (";
@@ -118,8 +156,8 @@ class hicks_database {
 			$statement = $this->link->prepare($sql);
 			$count = $statement->execute($pageArray);
 			return $count;
-		} catch (PDOException $e) {
-			echo $e->getMessage();
+		} catch (PDOException $ex) {
+			echo $ex->getMessage();
 		}
 	}
 
@@ -134,8 +172,8 @@ class hicks_database {
 			$statement = $this->link->prepare($sql);
 			$count = $statement->execute($setarray);
 			return $count;
-		} catch (PDOException $e) {
-			echo $e->getMessage();
+		} catch (PDOException $ex) {
+			echo $ex->getMessage();
 		}
 	}
 
