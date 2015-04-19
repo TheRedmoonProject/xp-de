@@ -108,11 +108,11 @@ class hicks_database {
 	/**
 	 * 
 	 * @param string $table
-	 * @param array $variables
+	 * @param array $fields
+	 * @param boolean $update
 	 * @return unknown
 	 */
-	
-	public function insert($table, $fields) {
+	public function insert($table, $fields, $update = false) {
 		/*
 		$fields = array(
 			array("name" => "","value" => ""),
