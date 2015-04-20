@@ -1,5 +1,7 @@
 <?php
-if(!defined("HICKS_HOME")){exit;} // Sicherheitscheck
 
+if (!defined("HICKS_HOME")) {
+    exit;
+} // Sicherheitscheck
 
 ?>

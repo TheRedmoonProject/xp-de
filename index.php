@@ -1,3 +1,5 @@
 <?php
-define("HICKS_HOME",__DIR__);
+
+define("HICKS_HOME", __DIR__);
+
 ?>
