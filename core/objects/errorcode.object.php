@@ -4,7 +4,7 @@ if(!defined("HICKS_HOME")){exit;} // Sicherheitscheck
 class hicks_errorcode{
 	
 // 4xx Errors
-public $400 = array(
+public $e400 = array(
 		"code" => 400,
 		"msg" => array("shortmsg" => "Bad Request", "longmsg" => "Error 400: Ein Fehler ist aufgetreten"),
 		"offline" => false,
@@ -12,7 +12,7 @@ public $400 = array(
 		"file" => null,
 		"line" => null
 );
-public $401 = array(
+public $e401 = array(
 		"code" => 401,
 		"msg" => array("shortmsg" => "Unauthorized", "longmsg" => "Error 401: Brücke nicht gefunden"),
 		"offline" => false,
@@ -20,7 +20,7 @@ public $401 = array(
 		"file" => null,
 		"line" => null
 );
-public $402 = array(
+public $e402 = array(
 		"code" => 402,
 		"msg" => array("shortmsg" => "Payment Required", "longmsg" => "Error 402: Brücke nicht gefunden"),
 		"offline" => false,
@@ -28,7 +28,7 @@ public $402 = array(
 		"file" => null,
 		"line" => null
 );
-public $403 = array(
+public $e403 = array(
 		"code" => 403,
 		"msg" => array("shortmsg" => "Forbidden", "longmsg" => "Error 403: Brücke nicht gefunden"),
 		"offline" => false,
@@ -36,7 +36,7 @@ public $403 = array(
 		"file" => null,
 		"line" => null
 );
-public $404 = array(
+public $e404 = array(
 		"code" => 404,
 		"msg" => array("shortmsg" => "Not Found", "longmsg" => "Error 404: Brücke nicht gefunden"),
 		"offline" => false,
@@ -44,7 +44,7 @@ public $404 = array(
 		"file" => null,
 		"line" => null
 );
-public $408 = array(
+public $e408 = array(
 		"code" => 408,
 		"msg" => array("shortmsg" => "Request Time-out", "longmsg" => "Error 408: Brücke nicht gefunden"),
 		"offline" => false,
@@ -52,7 +52,7 @@ public $408 = array(
 		"file" => null,
 		"line" => null
 );
-public $410 = array(
+public $e410 = array(
 		"code" => 410,
 		"msg" => array("shortmsg" => "Gone", "longmsg" => "Error 410: Brücke nicht gefunden"),
 		"offline" => false,
@@ -60,7 +60,7 @@ public $410 = array(
 		"file" => null,
 		"line" => null
 );
-public $414 = array(
+public $e414 = array(
 		"code" => 414,
 		"msg" => array("shortmsg" => "Request-URL Too Long", "longmsg" => "Error 414: Brücke nicht gefunden"),
 		"offline" => false,
@@ -68,7 +68,7 @@ public $414 = array(
 		"file" => null,
 		"line" => null
 );
-public $415 = array(
+public $e415 = array(
 		"code" => 415,
 		"msg" => array("shortmsg" => "Unsupported Media Type", "longmsg" => "Error 415: Brücke nicht gefunden"),
 		"offline" => false,
@@ -76,7 +76,7 @@ public $415 = array(
 		"file" => null,
 		"line" => null
 );
-public $429 = array(
+public $e429 = array(
 		"code" => 429,
 		"msg" => array("shortmsg" => "Too Many Requests", "longmsg" => "Error 429: Brücke nicht gefunden"),
 		"offline" => false,
@@ -85,7 +85,7 @@ public $429 = array(
 		"line" => null
 );
 // 5xx Errors
-public $500 = array(
+public $e500 = array(
 		"code" => 500,
 		"msg" => array("shortmsg" => "Internal Server Error", "longmsg" => "Error 500: Brücke nicht gefunden"),
 		"offline" => false,
@@ -93,7 +93,7 @@ public $500 = array(
 		"file" => null,
 		"line" => null
 );
-public $501 = array(
+public $e501 = array(
 		"code" => 501,
 		"msg" => array("shortmsg" => "Not Implemented", "longmsg" => "Error 501: Brücke nicht gefunden"),
 		"offline" => false,
@@ -101,7 +101,7 @@ public $501 = array(
 		"file" => null,
 		"line" => null
 );
-public $502 = array(
+public $e502 = array(
 		"code" => 502,
 		"msg" => array("shortmsg" => "Bad Gateway", "longmsg" => "Error 502: Brücke nicht gefunden"),
 		"offline" => false,
@@ -109,7 +109,7 @@ public $502 = array(
 		"file" => null,
 		"line" => null
 );
-public $503 = array(
+public $e503 = array(
 		"code" => 503,
 		"msg" => array("shortmsg" => "Service Unavailable", "longmsg" => "Error 503: Brücke nicht gefunden"),
 		"offline" => false,
@@ -117,7 +117,7 @@ public $503 = array(
 		"file" => null,
 		"line" => null
 );
-public $500 = array(
+public $e500 = array(
 		"code" => 500,
 		"msg" => array("shortmsg" => "Internal Server Error", "longmsg" => "Error 500: Brücke nicht gefunden"),
 		"offline" => false,
@@ -125,7 +125,7 @@ public $500 = array(
 		"file" => null,
 		"line" => null
 );
-public $500 = array(
+public $e500 = array(
 		"code" => 500,
 		"msg" => array("shortmsg" => "Internal Server Error", "longmsg" => "Error 500: Brücke nicht gefunden"),
 		"offline" => false,
