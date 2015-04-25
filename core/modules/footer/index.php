@@ -12,3 +12,5 @@ $out->push('
 </body>
 </html>
 ');
+
+?>
