@@ -20,5 +20,17 @@ $db = hicks_database::getInstance(); // Initialisiert die Datenbank
 
 
 
+$sql = "SELECT * FROM `module` WHERE `name` LIKE 'start';";
+$db = new hicks_database();
+$result = $db->select('module','*',array(array("name" => "name", "value" => $module)));
 
+if($result['name'] == $module){
+	
+	require_once HICKS_HOME.'/modules/'.$module.'/index.php';
+}else{
+	// ERROR
+}
+
+$output = hicks_output::getInstance();
+$output->printOut();  // Gibt den Outputbuffer aus und schließt somit den Prozess ab
 ?>
