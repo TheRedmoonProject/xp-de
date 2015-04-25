@@ -10,4 +10,9 @@ if (!defined("HICKS_HOME")) {
   );
  */
 
+// Alle Controller einlesen
+require_once 'controller/error.controller.php';
+require_once 'controller/database.controller.php';
+
+
 ?>
