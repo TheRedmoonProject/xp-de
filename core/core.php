@@ -17,7 +17,8 @@ require_once 'controller/output.controller.php';
 
 $db = hicks_database::getInstance(); // Initialisiert die Datenbank
 
-
+$module = $_GET['modul'];
+$param = $_GET['param'];
 
 
 
