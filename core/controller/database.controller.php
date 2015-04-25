@@ -56,11 +56,12 @@ class hicks_database {
      * Datenbankabfrage | Gibt einen Array zurück 
      * @param string $table
      * @param string $column
-     * @param string $where
-     * @param const $arrayTyp
+     * @param string $where 
+     * @param string $addition    
+     * @param const $arrayTyp     
      * @return array
      */
-    public function select($table, $column = "*", $where = null, $arrayTyp = PDO::FETCH_ASSOC) {
+    public function select($table, $column = "*", $where = null, $addition = "", $arrayTyp = PDO::FETCH_ASSOC) {
         $variables = array();
         $wherequery = "";
         if (!$where == null) {
@@ -82,7 +83,7 @@ class hicks_database {
         $ret = array();
         $variables[":column"] = $column;
         $variables[":table"] = $this->prefix . $table;
-        $sql = "SELECT :column FROM :table" . $wherequery;
+        $sql = "SELECT :column FROM :table" . $wherequery.$addition;
 
         try {
             $stmt = $this->uplink->prepare($sql);
