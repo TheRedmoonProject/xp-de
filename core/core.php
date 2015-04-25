@@ -17,7 +17,7 @@ require_once 'controller/output.controller.php';
 
 $db = hicks_database::getInstance(); // Initialisiert die Datenbank
 
-$url = $_SERVER["REQUEST_URI"];
+
 
 
 
