@@ -26,10 +26,13 @@ $db = new hicks_database();
 $result = $db->select('module','*',array(array("name" => "name", "value" => $module)));
 
 if($result['name'] == $module){
-	
-	require_once HICKS_HOME.'/modules/'.$module.'/index.php';
+	if($result['active'] == true){
+		require_once HICKS_HOME.'/modules/'.$module.'/index.php';
+	}else{
+		// ERROR  (Zugriff auf dieses Modul verweigert)
+	}
 }else{
-	// ERROR
+	// ERROR  (Modul existiert nicht)
 }
 
 $output = hicks_output::getInstance();
