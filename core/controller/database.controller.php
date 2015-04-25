@@ -146,9 +146,6 @@ class hicks_database {
         $sql = "INSERT INTO :table (" . $varquery . $valuequery . ");";
 
         try {
-
-            //$sql = substr($sql, 0, -2) . ") VALUES (";    ??
-            //$sql .= substr($values, 0, -2) . ")";			??
             $statement = $this->link->prepare($sql);
             $count = $statement->execute($variables);
             return $count;
