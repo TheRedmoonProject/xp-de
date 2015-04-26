@@ -2,27 +2,27 @@ RewriteEngine On
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)/(.*)/(.*)/(.*)/(.*)/(.*)$ /index.php?module=$1&param[]=$2&param[]=$3&param[]=$4&param[]=$5&param[]=$6 [L]
+RewriteRule ^(.*)/(.*)/(.*)/(.*)/(.*)/(.*)$ /index.php?page_name=$1&param[]=$2&param[]=$3&param[]=$4&param[]=$5&param[]=$6 [L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)/(.*)/(.*)/(.*)/(.*)$ /index.php?module=$1&param[]=$2&param[]=$3&param[]=$4&param[]=$5 [L]
+RewriteRule ^(.*)/(.*)/(.*)/(.*)/(.*)$ /index.php?page_name=$1&param[]=$2&param[]=$3&param[]=$4&param[]=$5 [L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)/(.*)/(.*)/(.*)$ /index.php?module=$1&param[]=$2&param[]=$3&param[]=$4 [L]
+RewriteRule ^(.*)/(.*)/(.*)/(.*)$ /index.php?page_name=$1&param[]=$2&param[]=$3&param[]=$4 [L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)/(.*)/(.*)$ /index.php?module=$1&param[]=$2&param[]=$3 [L]
+RewriteRule ^(.*)/(.*)/(.*)$ /index.php?page_name=$1&param[]=$2&param[]=$3 [L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)/(.*)$ /index.php?module=$1&param[]=$2 [L]
+RewriteRule ^(.*)/(.*)$ /index.php?page_name=$1&param[]=$2 [L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ /index.php?module=$1 [L]
+RewriteRule ^(.*)$ /index.php?page_name=$1 [L]
 
 
 
