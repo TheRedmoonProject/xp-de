@@ -21,6 +21,7 @@ class hicks_session extends hicks{
         return self::$instance; // Gibt die Instanz der Klasse zurück
     }
 
+    
 }
 
 ?>
