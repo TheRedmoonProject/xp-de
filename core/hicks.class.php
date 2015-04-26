@@ -4,15 +4,7 @@ if (!defined("HICKS_HOME")) {
     exit;
 } // Sicherheitscheck
 
-class hicks_session {
-    /* ToDo:
-     * - neue SESSION-Instanz erkennen + anlegen... done
-     * - Ein- und Ausgabe von SESSION var in / aus DB
-     * - Cookies definieren - dauerhaft
-     */
-
-    private static $instance = null;
-    private $phpSessionId;
+class hicks {
 
     public function __construct() {
         if (self::$instance === null) {
@@ -21,7 +13,4 @@ class hicks_session {
         return self::$instance; // Gibt die Instanz der Klasse zurück
     }
 
-    
 }
-
-?>
