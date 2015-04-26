@@ -23,7 +23,7 @@ $param = $_GET['param'];
 
 $sql = "SELECT * FROM `module` WHERE `name` LIKE 'start';";
 $db = new hicks_database();
-$result = $db->select('module','*',array(array("name" => "name", "value" => $module)));
+$result = $db->select('module','`name`,`active`,`beta`',array(array("name" => "name", "value" => $module)));
 
 if($result['name'] == $module){
 	if($result['active'] == true){
