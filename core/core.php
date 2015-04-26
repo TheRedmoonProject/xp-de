@@ -17,22 +17,34 @@ require_once 'controller/output.controller.php';
 
 $db = hicks_database::getInstance(); // Initialisiert die Datenbank
 
-$module = $_GET['modul'];
+$page_name = $_GET['page_name'];
 $param = $_GET['param'];
 
+$lang = 'de-DE';
 
-$sql = "SELECT * FROM `module` WHERE `name` LIKE 'start';";
+
+
+
 $db = new hicks_database();
-$result = $db->select('module','`name`,`active`,`beta`',array(array("name" => "name", "value" => $module)));
+$result = $db->select('page','`name`,`content`,`page_type`',array(array("name" => "name", "value" => $page_name),array("name" => "lang", "value" => $lang)));
 
-if($result['name'] == $module){
-	if($result['active'] == true){
+if($page_name == ''){
+	$page_name = 'start';
+}
+
+if($result['name'] == $page_name || $result['name'] == 'start'){
+	
+	$page_type_stmt = $db->select('page_type','`id`,`name`',array(array("name" => "id", "value" => $result['type'])));
+	if($page_type_stmt['id'] == $result['id']){
 		require_once HICKS_HOME.'/modules/'.$module.'/index.php';
 	}else{
-		// ERROR  (Zugriff auf dieses Modul verweigert)
+		// Error Page Type nicht gefunden
 	}
+		
+		
+	
 }else{
-	// ERROR  (Modul existiert nicht)
+	// ERROR  (Seite existiert nicht)
 }
 
 $output = hicks_output::getInstance();
