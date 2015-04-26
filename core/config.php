@@ -53,10 +53,17 @@ class hicks_config {
     public static function database_prefix() {
         return "";
     }
-    
+    /**
+     * Gibt die Hauptdomain zurück
+     * @return string
+     */
     public static function domain() {
     	return "livespawn.de";
     }
+    /**
+     * Gibt den Domainprefix zurück
+     * @return string
+     */
     public static function subdomain_prefix() {
     	return "app.";
     }
