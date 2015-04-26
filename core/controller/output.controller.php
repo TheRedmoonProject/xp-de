@@ -5,30 +5,18 @@ if (!defined("HICKS_HOME")) {
 
 class hicks_output{
 
-private static $instance = null;
 
-public $output = "";
+private static $output = "";
 
-public static function getInstance() {
-	if (self::$instance === null) {
-		self::$instance = new self();
-	}
-	return self::$instance; // Gibt die Instanz der Klasse zurück
-	
+
+public static function push($content){
+	self::$output .= $content;
 }
 
-
-public function push ($content){
-	
-	$this->$output .= $content;
-	
+public static function get(){
+	return self::$output;
 }
 
-public function printOut (){
-	
-	$out = $this->output;
-	
-}
 
 
 
