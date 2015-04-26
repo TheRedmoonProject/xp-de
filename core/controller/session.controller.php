@@ -4,7 +4,7 @@ if (!defined("HICKS_HOME")) {
     exit;
 } // Sicherheitscheck
 
-class hicks_session {
+class hicks_session extends hicks{
     /* ToDo:
      * - neue SESSION-Instanz erkennen + anlegen... done
      * - Ein- und Ausgabe von SESSION var in / aus DB

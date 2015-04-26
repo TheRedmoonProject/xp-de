@@ -8,7 +8,7 @@ if (!defined("HICKS_HOME")) {
  * Diese Klasse arbeitet in einer einzelnen Instanz. Sie darf nicht als neue Instanz eingelesen werden. 
  * Benutzt wird: hicks_database::getInstance(); . Die gültige Instanz wird dann zurückgegeben.
  */
-class hicks_database {
+class hicks_database extends hicks{
 
     private static $instance = null;
     private $type;
