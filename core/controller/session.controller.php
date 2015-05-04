@@ -4,7 +4,7 @@ if (!defined("HICKS_HOME")) {
     exit;
 } // Sicherheitscheck
 
-class hicks_session extends hicks{
+class hicks_session extends hicks {
     /* ToDo:
      * - neue SESSION-Instanz erkennen + anlegen... done
      * - Ein- und Ausgabe von SESSION var in / aus DB
@@ -15,12 +15,11 @@ class hicks_session extends hicks{
     private $phpSessionId;
 
     public function __construct() {
-        if (self::$instance === null) {
-            self::$instance = new self();
-        }
-        return self::$instance; // Gibt die Instanz der Klasse zurück
+        parent::__construct();
+        
+        //-- Überprüfe ob phpSessionID noch die gleiche ist, ansonsten lade Infos aus DB und schreibe in Session
+        
     }
 
 }
-
 ?>
