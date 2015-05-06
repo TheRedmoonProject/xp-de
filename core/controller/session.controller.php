@@ -13,14 +13,14 @@ class hicks_session extends hicks {
 
     private static $instance = null;
     private $phpSessionId;
-<<<<<<< HEAD
+
 
     public function __construct() {
         parent::__construct();
         
         //-- Überprüfe ob phpSessionID noch die gleiche ist, ansonsten lade Infos aus DB und schreibe in Session
-        
-=======
+    }
+
     private $database;
 	
     public static function getInstance() {
