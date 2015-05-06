@@ -112,7 +112,7 @@ class hicks_session extends hicks {
     	
     	
     	return true;
->>>>>>> origin/master
+
     }
     /**
      * Entfernt den mit der Session verbundenen Cookie
