@@ -19,8 +19,8 @@ require_once 'controller/database.controller.php';
 
 $db = hicks_database::getInstance(); // Initialisiert die Datenbank
 
-$page_name = $_GET['page_name'];
-$param = $_GET['param'];
+if(isset($_GET['page_name'])){$page_name = $_GET['page_name'];}else{$page_name = '';}
+if(isset($_GET['param'])){$param = $_GET['param'];}else{$param = '';}
 
 $lang = 'de-DE';
 if ($page_name == '') {
