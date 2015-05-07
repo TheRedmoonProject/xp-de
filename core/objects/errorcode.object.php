@@ -117,36 +117,37 @@ public $e503 = array(
 		"file" => null,
 		"line" => null
 );
-public $e500 = array(
-		"code" => 500,
-		"msg" => array("shortmsg" => "Internal Server Error", "longmsg" => "Error 500: Brücke nicht gefunden"),
-		"offline" => false,
-		"info" => ".",
-		"file" => null,
-		"line" => null
-);
-public $e500 = array(
-		"code" => 500,
-		"msg" => array("shortmsg" => "Internal Server Error", "longmsg" => "Error 500: Brücke nicht gefunden"),
-		"offline" => false,
-		"info" => ".",
-		"file" => null,
-		"line" => null
-);
 
-// 1xxx Errors
 
-// 2xxx Errors
 
-// 3xxx Errors
+// 1xxx Errors  Interne Errors
+
+// 2xxx Errors  Fehler bei der Datenübergabe
+
+// 3xxx Errors  
 
 // 4xxx Errors
 
-// 5xxx Errors
-
+// 5xxx Errors  Datenbank Error (PDOExeption)
+public $e5000 = array(
+		"code" => 500,
+		"msg" => array("shortmsg" => "Allgemeiner Datenbankfehler", "longmsg" => "Error 5000: Höööh?"),
+		"offline" => false,
+		"info" => "Es ist ein unbekannter Datenbankfehler aufgetreten.",
+		"file" => null,
+		"line" => null
+);
+public $e5001 = array(
+		"code" => 500,
+		"msg" => array("shortmsg" => "Verbindung zur Datenbank fehlgeschlagen", "longmsg" => "Error 5001: Lager überfallen"),
+		"offline" => true,
+		"info" => "Es konnte keine Verbindung zur Datenbank aufgebaut werden.",
+		"file" => null,
+		"line" => null
+);
 // 6xxx Errors
 
-// 7xxx Errors
+// 7xxx Errors  Error bei der Datenbankeingabe (Escapes etc.)
 
 // 8xxx Errors
 
