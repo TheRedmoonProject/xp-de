@@ -11,6 +11,7 @@ if (!defined("HICKS_HOME")) {
  */
 
 // Alle Controller einlesen
+require_once 'hicks.class.php';
 require_once 'controller/error.controller.php';
 require_once 'controller/database.controller.php';
  require_once 'controller/output.controller.php';
