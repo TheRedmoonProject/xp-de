@@ -10,6 +10,7 @@ if (!defined("HICKS_HOME")) {
   );
  */
 
+require_once 'config.php';
 // Alle Controller einlesen
 require_once 'hicks.class.php';
 require_once 'controller/error.controller.php';
