@@ -40,7 +40,6 @@ FROM page as p, page_type as pt
 WHERE p.id = pt.id 
 AND page.name = '$page_name'";
 
-$db = new hicks_database();
 $result = $db->select('page', '`name`,`content`,`page_type`', 
         array(array("name" => "name", "value" => $page_name), 
             array("name" => "lang", "value" => $lang)));
