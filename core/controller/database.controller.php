@@ -48,8 +48,9 @@ class hicks_database extends hicks{
             $this->uplinkcheck = true;
         } catch (PDOExeption $ex) {
             $this->uplinkcheck = true;
-            // ERROR 
+            print_r($ex);
         }
+print_r($this);
     }
 
     /**
@@ -86,6 +87,7 @@ class hicks_database extends hicks{
         $sql = "SELECT :column FROM :table" . $wherequery.$addition;
 
         try {
+            print_r($this);
             $stmt = $this->uplink->prepare($sql);
             $stmt->execute();
             $result = $stmt->fetchAll($arrayTyp);
@@ -104,7 +106,7 @@ class hicks_database extends hicks{
         }
 
         /* free result set */
-        $stm->closeCursor();
+        $stmt->closeCursor();
 
         return $ret;
     }
