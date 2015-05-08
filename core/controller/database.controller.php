@@ -66,7 +66,7 @@ print_r($this);
         $variables = array();
         $wherequery = "";
         if (!$where == null) {
-            $wherequery .= "WHERE ";
+            $wherequery .= " WHERE ";
             /* $where = array(
 
               array("name" => "id", "value" => "1"),
@@ -75,9 +75,14 @@ print_r($this);
              */
             $int = 0;
             foreach ($where as $arg) { // Erzeugt den WHERE-Teil des Querys
-                $wherequery .= ":" . $int . "name = :" . $int . "value ";
+if($int == 0){
+$wherequery .= ":" . $int . "name = :" . $int . "value ";
+}else{
+                $wherequery .= ", :" . $int . "name = :" . $int . "value ";
+}
                 $variables[":" . $int . "name"] = $arg['name'];
                 $variables[":" . $int . "value"] = $arg['value'];
+
                 $int++;
             }
         }
@@ -98,7 +103,7 @@ print_r($this);
             var_dump($ex->getMessage());
         }
         $error = $this->uplink->errorInfo();  //  Die errorInfo() wird aus dem PDO Object und nicht aus dem PDOStatement bezogen ;)
-        $ret[] = array('count' => $stmt->rowCount(), 'error' => $error[2], 'sql' => $sql);
+        $ret[] = array('count' => $stmt->rowCount(), 'error' => $error[2], 'sql' => $sql, 'sqlvar' => $variables);
 
         /* associative and numeric array */
         foreach ($result as $row) {
