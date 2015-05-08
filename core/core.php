@@ -19,13 +19,11 @@ require_once 'controller/database.controller.php';
 
 $db = hicks_database::getInstance(); // Initialisiert die Datenbank
 
-if(isset($_GET['page_name'])){$page_name = $_GET['page_name'];}else{$page_name = '';}
+if(isset($_GET['page_name'])){$page_name = $_GET['page_name'];}else{$page_name = 'start';}
 if(isset($_GET['param'])){$param = $_GET['param'];}else{$param = '';}
 
 $lang = 'de-DE';
-if ($page_name == '') {
-    $page_name = 'start';
-}
+
 
 /*
  * SELECT p.id, p.name, p.intermal_name, p.content, p.type, p.lang, pt.id, pt.name, pt.active, pt.beta 
@@ -40,8 +38,8 @@ FROM page as p, page_type as pt
 WHERE p.id = pt.id 
 AND page.name = '$page_name'";
 
-$result = $db->select('page', '`name`,`content`,`page_type`', 
-        array(array("name" => "name", "value" => $page_name), 
+$result = $db->select('page as p, page_type as pt', 'p.id, p.name, p.internal_name, p.content, p.type, p.lang, pt.id, pt.name, pt.active, pt.beta', 
+        array(array("name" => "p.name", "value" => $page_name), 
             array("name" => "lang", "value" => $lang)));
 
 
