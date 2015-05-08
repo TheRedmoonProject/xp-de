@@ -96,7 +96,7 @@ class hicks_database extends hicks{
             var_dump($ex->getMessage());
         }
         $error = $this->uplink->errorInfo();  //  Die errorInfo() wird aus dem PDO Object und nicht aus dem PDOStatement bezogen ;)
-        $ret[] = array('count' => $stm->rowCount(), 'error' => $error[2], 'sql' => $sql);
+        $ret[] = array('count' => $stmt->rowCount(), 'error' => $error[2], 'sql' => $sql);
 
         /* associative and numeric array */
         foreach ($result as $row) {
