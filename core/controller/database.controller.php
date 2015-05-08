@@ -88,7 +88,7 @@ class hicks_database extends hicks{
         try {
             $stmt = $this->uplink->prepare($sql);
             $stmt->execute();
-            $result = $stm->fetchAll($arrayTyp);
+            $result = $stmt->fetchAll($arrayTyp);
 
             //* Die erste Zeile ([0]) enthält Status-infors */
         } catch (PDOException $ex) {
