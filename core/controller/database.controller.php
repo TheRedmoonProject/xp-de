@@ -94,7 +94,7 @@ $wherequery .= ":" . $int . "name = :" . $int . "value ";
         try {
             print_r($this);
             $stmt = $this->uplink->prepare($sql);
-            $stmt->execute();
+            $stmt->execute($variables);
             $result = $stmt->fetchAll($arrayTyp);
 
             //* Die erste Zeile ([0]) enthält Status-infors */
